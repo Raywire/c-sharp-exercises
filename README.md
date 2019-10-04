@@ -36,7 +36,7 @@ These are some exercises to better understand programming concepts in C#
       Base
     ```
 
-### Run the project
+### Run the Animal folder
 * Change directory to the specific folder
 * Run the .exe file using mono C# compiler
 
@@ -45,4 +45,16 @@ For example
 ```bash
   cd Animal/
   mono Animal.exe
+```
+
+### Run the Collections folder
+* Change directory to the Collections folder
+* Change directory to the specific folder
+* Run the .cs file using csharp command
+
+For example
+
+```bash
+  cd Collections/JaggedArrays/
+  csharp Cell.cs
 ```
