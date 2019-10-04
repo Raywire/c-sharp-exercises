@@ -18,5 +18,10 @@ namespace Treehouse
 
       return result;
     }
+
+    public override int GetHashCode()
+    {
+      return Name.GetHashCode() + GradeLevel.GetHashCode();
+    }
   }
 }
