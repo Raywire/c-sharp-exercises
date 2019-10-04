@@ -67,6 +67,17 @@ namespace Treehouse
       {'Ñ', "--.--"},
       {'Ü', "..--"}
     };
+
+    private static Dictionary<string, char> _morseToText = new Dictionary<string, char>();
+
+    static MorseCodeTranslator()
+    {
+      foreach (KeyValuePair<char, string> code in _textToMorse)
+      {
+        // _morseToText[code.Value] = code.Key;
+        _morseToText.Add(code.Value, code.Key);
+      }
+    }
     public static string ToMorse(string input)
     {
       List<string> output = new List<string>(input.Length);
@@ -85,5 +96,33 @@ namespace Treehouse
       }
       return string.Join(" ", output);
     }
+
+        public static string ToText(string input)
+        {
+          string[] inputWords = input.Split(new char[] {'/'}, StringSplitOptions.RemoveEmptyEntries);
+          List<string> outputWords = new List<string>(inputWords.Length);
+
+          foreach(string morseWord in inputWords)
+          {
+            string[] morseChars = morseWord.Split(new char[] {' '}, StringSplitOptions.RemoveEmptyEntries);
+            StringBuilder outputWord = new StringBuilder(morseChars.Length);
+
+            foreach(string morseChar in morseChars)
+            {
+              try
+              {
+                outputWord.Append(_morseToText[morseChar]);
+              }
+              catch(KeyNotFoundException)
+              {
+                outputWord.Append("!");
+              }
+            }
+
+            outputWords.Add(outputWord.ToString());
+          }
+
+          return string.Join(" ", outputWords);
+        }
   }
 }
