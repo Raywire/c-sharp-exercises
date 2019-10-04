@@ -23,5 +23,17 @@ namespace Treehouse
     {
       return Name.GetHashCode() + GradeLevel.GetHashCode();
     }
+
+    public override bool Equals(object obj)
+    {
+      Student that = obj as Student;
+
+      if(that == null)
+      {
+        return false;
+      }
+
+      return this.Name == that.Name && this.GradeLevel == that.GradeLevel;
+    }
   }
 }

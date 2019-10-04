@@ -21,8 +21,7 @@ namespace Treehouse
 
           students.Add(duplicateJoe);
 
-          System.Console.WriteLine(joe.GetHashCode());
-          System.Console.WriteLine(duplicateJoe.GetHashCode());
+          
 
           foreach (Student student in students)
           {
