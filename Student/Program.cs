@@ -15,11 +15,8 @@ namespace Treehouse
 
           SchoolRoll schoolRoll = new SchoolRoll();
           schoolRoll.AddStudents(students);
-
-          schoolRoll.Students.RemoveAt(0); // with IEnumerable this in not possible
-          schoolRoll.Students.Sort(); // with IEnumerable this in not possible
-
-          schoolRoll.Students.AddRange(students); // with IEnumerable this in not possible
+          
+          schoolRoll.AddStudents(students);
 
           foreach (Student student in schoolRoll.Students)
           {
