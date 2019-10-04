@@ -13,8 +13,15 @@ namespace Treehouse
             new Student() { Name = "Sally", GradeLevel = 2},
           };
 
+          SchoolRoll schoolRoll = new SchoolRoll();
+          schoolRoll.AddStudents(students);
 
-          foreach (Student student in students)
+          schoolRoll.Students.RemoveAt(0); // with IEnumerable this in not possible
+          schoolRoll.Students.Sort(); // with IEnumerable this in not possible
+
+          schoolRoll.Students.AddRange(students); // with IEnumerable this in not possible
+
+          foreach (Student student in schoolRoll.Students)
           {
             System.Console.WriteLine($"{student.Name} is in grade: {student.GradeLevel}");
           }
